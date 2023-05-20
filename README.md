@@ -19,6 +19,7 @@ sudo docker-compose exec web alembic upgrade head
 
 ## Request example: 
 method[POST] http://127.0.0.1:8008/quiz
+
 В теле запроса, - колличество вопросов для викториты. 
 ```
 {
@@ -26,6 +27,7 @@ method[POST] http://127.0.0.1:8008/quiz
 }
 ```
 Под капотом идет запрос к API https://jservice.io/api/random?count=1.
+
 <code>"questions_num"</code> из тела запроса соответствует параметру <code>count</code> для https://jservice.io/api/random
 
 ## Response example
