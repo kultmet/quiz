@@ -8,7 +8,7 @@ from sqlalchemy import Row, select, insert
 from quiz.models import quiz
 from quiz.schemas import QuestionResponse
 
-r = redis.Redis(host='localhost', port=6379, decode_responses=True)
+r = redis.Redis(host='cache', port=6379, decode_responses=True)
 
 
 async def save(values: List[Row], session: AsyncSession):
@@ -42,6 +42,7 @@ def formatted_row(entry: dict):
         'question': entry['question'],
         'created_at': entry['created_at']
     }
+
 
 async def validate_exists(entry: dict, validated_data: List[dict]):
     if r.exists(entry['answer']) == 1:

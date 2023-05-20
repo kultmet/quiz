@@ -4,28 +4,23 @@
 ## Getting started:
 ### Как начать?
 
-Локальный запуск
-```
-uvicorn main:app --reload
-```
+Запускаем контейнеры с помощью docker-compose
 
 ```
 docker-compose up -d
 ```
 
+Делаем миграции
+
+```
+sudo docker-compose exec web alembic upgrade head
+```
+
+## Request example
+### Премер запроса
 
 
-для того чтоб прошли миграции, обязательно нужно в docker-compose  вывести порт, вот так вот
-ports:
-    - 5432:5432
-
-
-миграции 
-alembic revision --autogenerate -m 'initial'
-alembic upgrade head
-alembic downgrade base
-
-Для того чтобы вавести обьект записи из базы данных, нужно воспользоваться Pydentic схемой вот так
-"QuestionResponse.from_orm(obj)" а список сгенерировать через генератор списка
+## Response example
+### Пример ответа
 
 
