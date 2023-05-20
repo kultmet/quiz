@@ -3,8 +3,7 @@
 
 
 
-## Getting started:
-### Как начать?
+## Getting started: ### Как начать?
 
 Запускаем контейнеры с помощью docker-compose
 
