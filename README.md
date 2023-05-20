@@ -1,5 +1,5 @@
 # quiz
-## This test task
+This test task
 
 
 
@@ -18,7 +18,7 @@ sudo docker-compose exec web alembic upgrade head
 ```
 
 ## Request example: 
-##    method[POST] http://127.0.0.1:8008/quiz
+method[POST] http://127.0.0.1:8008/quiz
 В теле запроса, - колличество вопросов для викториты. 
 ```
 {
