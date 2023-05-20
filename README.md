@@ -1,9 +1,8 @@
 # quiz
 ## This test task
 
-
-
-## Getting started: ### Как начать?
+## Getting started:
+### Как начать?
 
 Запускаем контейнеры с помощью docker-compose
 
@@ -40,5 +39,3 @@ sudo docker-compose exec web alembic upgrade head
     "date_added": "2023-05-20T16:49:51.595678"
 }
 ```
-
-
