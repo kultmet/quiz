@@ -5,9 +5,9 @@ from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import Row, select, insert
 
-from constants import API_URL, REDIS
-from quiz.models import quiz
-from quiz.schemas import QuestionResponse
+from src.constants import API_URL, REDIS
+from src.quiz.models import quiz
+from src.quiz.schemas import QuestionResponse
 
 
 async def save(values: List[Row], session: AsyncSession):
@@ -50,20 +50,18 @@ def formatted_row(entry: dict):
 
 
 async def validate_exists(entry: dict, validated_data: List[dict]):
-    if REDIS.exists(entry['answer']) == 1:
-        request = await request_quiz(1)
-        await validate_exists(request[0], validated_data)
-    else:
+    if REDIS.exists(entry['answer']) == 0:
         REDIS.set(entry['answer'], entry['answer'])
         validated_data.append(formatted_row(entry))
         return validated_data
 
 
-async def get_quiz(count: int, db_session: AsyncSession):
+async def fill_quiz(count: int, db_session: AsyncSession):
     """Saves all entries from API request to DataBase."""
-    await fill_cache(db_session)
     data = await request_quiz(count)
     validated_data = []
     for entry in data:
         await validate_exists(entry, validated_data)
+    if len(validated_data) < count:
+        await fill_quiz(count - len(validated_data), db_session)
     await save(validated_data, db_session)
