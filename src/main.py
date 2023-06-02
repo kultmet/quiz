@@ -16,8 +16,9 @@ app = FastAPI(
 
 
 @app.post("/quiz", response_model=QuestionResponse)
-async def read_root(item: Question,
-                    session: AsyncSession = Depends(get_async_session)):
+async def get_quiz(item: Question,
+                   session: AsyncSession = Depends(get_async_session)):
+    """Get quiz API view."""
     await fill_cache(session)
     await fill_quiz(count=item.questions_num, db_session=session)
     query = select(quiz).order_by(desc(quiz.c.date_added))

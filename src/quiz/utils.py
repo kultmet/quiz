@@ -17,7 +17,7 @@ async def save(values: List[Row], session: AsyncSession):
 
 
 async def fill_cache(db_session: AsyncSession):
-    """Adds all entries from Relation-data-base."""
+    """Adds to cashe all entries from Relation-data-base."""
     query = select(quiz)
     db_request = await db_session.execute(query)
     for entry in db_request.all():
@@ -41,6 +41,7 @@ async def request_quiz(count: int) -> List[dict]:
 
 
 def formatted_row(entry: dict):
+    """prepares a entry for writing to the database."""
     return {
         'id': entry['id'],
         'answer': entry['answer'],
@@ -50,6 +51,7 @@ def formatted_row(entry: dict):
 
 
 async def validate_exists(entry: dict, validated_data: List[dict]):
+    """Checks if an entry exists in the cache."""
     if REDIS.exists(entry['answer']) == 0:
         REDIS.set(entry['answer'], entry['answer'])
         validated_data.append(formatted_row(entry))
