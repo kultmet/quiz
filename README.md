@@ -46,3 +46,11 @@ The response will be the record that was created last. | В ответе буд�
     "date_added": "2023-05-20T16:49:51.595678"
 }
 ```
+
+if the database is empty then /quiz will return an empty object | Если база данных будет пуста то /quiz вернет пустой объект.
+
+```
+{}
+```
+
+Bye! Пока!
