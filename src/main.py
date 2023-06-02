@@ -3,11 +3,11 @@ from pydantic import ValidationError
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from src.constants import APP_DESCRITION
+from src.database import get_async_session, REDIS
 from src.quiz.schemas import Question, QuestionResponse
 from src.quiz.models import quiz
 from src.quiz.utils import fill_cache, fill_quiz
-from src.database import get_async_session
-from src.constants import REDIS, APP_DESCRITION
 
 app = FastAPI(
     title='Quiz',

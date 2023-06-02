@@ -5,7 +5,8 @@ from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import Row, select, insert
 
-from src.constants import API_URL, REDIS
+from src.database import REDIS
+from src.constants import API_URL
 from src.quiz.models import quiz
 from src.quiz.schemas import QuestionResponse
 
