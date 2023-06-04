@@ -41,7 +41,7 @@ sudo docker-compose exec web alembic upgrade head
 ```
 
 ## Request example: 
-Test the service here
+Test the service <a href="http://localhost/docs">here</a>
 
 method[POST] http://127.0.0.1:8008/quiz
 
