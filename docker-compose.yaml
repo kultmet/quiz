@@ -21,7 +21,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - 8008:8000
+      - 80:8000
     environment:
       - DB_NAME=postgres
       - DB_USER=postgres

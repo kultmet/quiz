@@ -11,10 +11,12 @@ cd your_directory
 git clone https://github.com/kultmet/quiz.git
 ```
 
+Next
 Create .env file and fill enviroments
 
 ```
 # to terminal
+cd quiz/
 
 touch .env
 echo DB_NAME=postgres >> .env
