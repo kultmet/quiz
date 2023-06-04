@@ -4,6 +4,28 @@ This test task
 ## Getting started:
 ### Как начать?
 
+Clone project from GitHub
+
+```
+cd your_directory
+git clone https://github.com/kultmet/quiz.git
+```
+
+Create .env file and fill enviroments
+
+```
+# to terminal
+
+touch .env
+echo DB_NAME=postgres >> .env
+echo DB_USER=postgres >> .env
+echo DB_PASSWORD=postgres >> .env
+echo DB_HOST=db >> .env
+echo DB_PORT=5432 >> .env
+
+# and push ENTER
+```
+
 Running containers with docker-compose | Запускаем контейнеры с помощью docker-compose
 
 ```
@@ -17,6 +39,8 @@ sudo docker-compose exec web alembic upgrade head
 ```
 
 ## Request example: 
+Test the service here
+
 method[POST] http://127.0.0.1:8008/quiz
 
 
