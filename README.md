@@ -34,11 +34,6 @@ Running containers with docker-compose | Запускаем контейнеры
 docker-compose up -d
 ```
 
-Making migrations | Делаем миграции
-
-```
-sudo docker-compose exec web alembic upgrade head
-```
 
 ## Request example: 
 Test the service <a href="http://localhost/docs">here</a>
