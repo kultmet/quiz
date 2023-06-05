@@ -12,6 +12,7 @@ git clone https://github.com/kultmet/quiz.git
 ```
 
 Next
+
 Create .env file and fill enviroments
 
 ```
@@ -38,7 +39,7 @@ docker-compose up -d
 ## Request example: 
 Test the service <a href="http://localhost/docs">here</a>
 
-method[POST] http://127.0.0.1:8008/quiz
+method[POST] http://127.0.0.1/quiz
 
 
 In the body of the request, the number of questions for the quiz. | В теле запроса, - колличество вопросов для викториты. 
